@@ -38,7 +38,7 @@ def town_list_process():
                 ville = cities["city"]  # or lang but wiki is case sensitive for OpenClassrooms
                 pageville = wikipedia.WikipediaPage(ville)
                 api_key = key
-                url = "https://maps.googleapis.com/maps/api/staticmap?center=" + user_question + "&zoom=12&size=400x400" \
+                url = "https://maps.googleapis.com/maps/api/staticmap?center=" + user_question + "&zoom=12&size=400x400"\
                 "&maptype=roadmap&markers=color:blue%7C"+ latitude + "," + longitude + "&key=" + api_key
                 wikiresult = pageville.summary
                 return jsonify(result=("D'ailleurs, savais tu que ", wikiresult, "?"), mapurl=url)

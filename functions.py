@@ -4,4 +4,6 @@ def __parser__(self):
     print(stripped_phrase, type(stripped_phrase))
     return stripped_phrase
 
+# def Grandpy(uinput):
+#  mettre la fonction à l'interieur
 
