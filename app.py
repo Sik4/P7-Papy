@@ -2,7 +2,7 @@ from flask import Flask, request, render_template, jsonify
 import json
 import wikipedia
 import re
-from functions import __parser__
+from functions import parser
 from KEY import key
 
 
@@ -27,10 +27,10 @@ def town_list_process():
     try:
         user_input = request.args.get("proglang", type=str)
         uinput = str(user_input).lower()
-        user_question = __parser__(uinput)
+        user_question = parser(uinput)
         for cities in town_list:
             print(cities["city"])
-            handel = __parser__(cities["city"].lower())
+            handel = parser(cities["city"].lower())
             if re.match(r".*" + handel + ".*", user_question):
                 latitude = cities["lat"]
                 longitude = cities["lng"]

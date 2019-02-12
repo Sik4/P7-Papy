@@ -1,4 +1,4 @@
-from functions import __parser__
+from functions import parser
 import app
 import pytest
 
@@ -8,12 +8,12 @@ phrasetest = 'je vis à Montpellier'
 
 @pytest.mark.parser
 def test_parser():
-    assert __parser__(phrasetest) == 'jevisàMontpellier'
+    assert parser(phrasetest) == 'jevisàMontpellier'
 
 
 @pytest.mark.type
 def test_type_parser():
-    x = __parser__(phrasetest)
+    x = parser(phrasetest)
     assert isinstance(x, str)
 
 
