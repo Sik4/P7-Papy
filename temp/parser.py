@@ -83,7 +83,7 @@ class PlaceExtractor:
     def _remove_stopwords(question):
         """éliminer les (mots courants) stop words de question."""
 
-        with open('stopwordsfr.json', 'r', errors='ignore') as stopwordsfr:
+        with open('temp/stopwordsfr.json', 'r', errors='ignore') as stopwordsfr:
             stopwords_list = json.load(stopwordsfr)
             question = ' '.join([w for w in question.split() if w not in stopwords_list])
 
@@ -103,6 +103,8 @@ def main():
         if "quitter" == question.lower().strip():
             break
         print("Parsed:", PlaceExtractor.extract(question))
+        user_input = PlaceExtractor.extract(question)
+        return str(user_input)
 
 
 if __name__ == "__main__":

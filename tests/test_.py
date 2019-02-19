@@ -1,8 +1,14 @@
-from functions import parser
+# from functions import parser
+import temp.parser
 import app
 import pytest
 
 
+def test_remove_accent():
+    assert PlaceExtractor._remove_accents("je vis à Montpellier") == "je vis a Montpellier"
+
+
+"""
 phrasetest = 'je vis à Montpellier'
 
 
@@ -15,6 +21,8 @@ def test_parser():
 def test_type_parser():
     x = parser(phrasetest)
     assert isinstance(x, str)
+
+"""
 
 
 

@@ -1,5 +1,6 @@
 from flask import Flask, request, render_template, jsonify
 import json
+from utilz import grandpy
 import wikipedia
 import re
 from utilz import parser
@@ -21,28 +22,15 @@ def index():
 
 @app.route('/town_list_process')
 def town_list_process():
-    with open('fr.json', 'r') as fp:
+    """with open('fr.json', 'r') as fp:
         town_list = json.load(fp)
+    """
 
     try:
         user_input = request.args.get("proglang", type=str)
-        uinput = str(user_input).lower()
-        user_question = parser(uinput)
-        for cities in town_list:
-            print(cities["city"])
-            handel = parser(cities["city"].lower())
-            if re.match(r".*" + handel + ".*", user_question):
-                latitude = cities["lat"]
-                longitude = cities["lng"]
-                wikipedia.set_lang("fr")
-                ville = cities["city"]  # or lang but wiki is case sensitive for OpenClassrooms
-                pageville = wikipedia.WikipediaPage(ville)
-                api_key = key
-                url = "https://maps.googleapis.com/maps/api/staticmap?center=" + user_question + "&zoom=12&size=400x400"\
-                "&maptype=roadmap&markers=color:blue%7C"+ latitude + "," + longitude + "&key=" + api_key
-                wikiresult = pageville.summary
-                return jsonify(result=("D'ailleurs, savais tu que ", wikiresult, "?"), mapurl=url)
-                # return jsonify({'output': render_template('index.html', result="this is a french city", mapurl=url)})
+        wikiresult = grandpy(user_input)
+        print(wikiresult)
+        return jsonify(result=("D'ailleurs, savais tu que " + wikiresult + "?"))  # , mapurl=url)
 
     except:
         print('Error')
