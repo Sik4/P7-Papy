@@ -2,7 +2,7 @@ from flask import Flask, request, render_template, jsonify
 import json
 import wikipedia
 import re
-from functions import parser
+from utilz import parser
 from KEY import key
 
 

@@ -6,16 +6,19 @@ Outils
 - méthodes de chaines de caractère: lower(). strip(), split(), join() et translate()
 6 étapes d'extraction proposée
 ------------------------------
-1. Transformer la phrase en minuscules (TODO: laissé pour exercice)
-2. Eliminer les accents de la phrase (TODO: laissé pour exercice)
+1. Transformer la phrase en minuscules (TODO: laissé pour exercice DONE)
+2. Eliminer les accents de la phrase (TODO: laissé pour exercice DONE)
 3. Extraire l'info de lieu avec une expression rationnelle (regex) en utilisant
    le module re de la bibliothèque standard (Exemple donné)
-4. Eliminer les caractères spéciaux comme apostrophes, tirets, etc. (TODO: laissé pour exercice)
-5. Eliminer les mots présents dans une liste de stop words (TODO: laissé pour exercice)
-6. Eliminer les mots courts p.ex. moins de 3 lettres (TODO: laissé pour exercice)
+4. Eliminer les caractères spéciaux comme apostrophes, tirets, etc. (TODO: laissé pour exercice DONE)
+5. Eliminer les mots présents dans une liste de stop words (TODO: laissé pour exercice DONE)
+6. Eliminer les mots courts p.ex. moins de 3 lettres (TODO: laissé pour exercice DONE)
 """
 
 import re
+import unidecode
+import json
+
 
 # Liste de patterns permettant d'extraire des lieux
 # Pour apprendre à utiliser les expressions rationnelles:https://bit.ly/2SvWv8M
@@ -36,6 +39,7 @@ pattern = (
     r"(?P<place>[^.,;:?!]*)"
 )
 
+
 class PlaceExtractor:
 
     @classmethod
@@ -51,12 +55,14 @@ class PlaceExtractor:
 
     @staticmethod
     def _remove_accents(question):
-        """TODO: eliminer les accents de question et retourner le resultat."""
+        """eliminer les accents de question et retourner le resultat."""
+        question = unidecode.unidecode(question)
         return question
 
     @staticmethod
     def _to_lower(question):
-        """TODO: transformer question en minuscules."""
+        """"transformer question en minuscules."""
+        question = question.lower()
         return question
 
     @staticmethod
@@ -69,17 +75,24 @@ class PlaceExtractor:
 
     @staticmethod
     def _remove_special(question):
-        """TODO: éliminer les caractères spéciaux de question"""
+        """éliminer les caractères spéciaux de question"""
+        question = re.sub('\W+', ' ', question)
         return question
 
     @staticmethod
     def _remove_stopwords(question):
-        """TODO: éliminer les (mots courants) stop words de question."""
+        """éliminer les (mots courants) stop words de question."""
+
+        with open('stopwordsfr.json', 'r', errors='ignore') as stopwordsfr:
+            stopwords_list = json.load(stopwordsfr)
+            question = ' '.join([w for w in question.split() if w not in stopwords_list])
+
         return question
 
     @staticmethod
-    def _remove_short_words(question, minlength=3):
-        """TODO: éliminer les mots cours de question."""
+    def _remove_short_words(question):
+        """éliminer les mots cours de question."""
+        question = ' '.join([w for w in question.split() if len(w) > 3])
         return question
 
 
