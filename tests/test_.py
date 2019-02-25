@@ -1,6 +1,6 @@
 # from functions import parser
 import temp.parser
-import app
+import app.papycore
 import pytest
 
 
