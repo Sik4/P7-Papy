@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "13e72b0b978a4db2e4b22653db87c2735fe8a4e619cb1c75a654ac953520a8ec"
+            "sha256": "0ea63ac2217808dff42d02f1526dceabc6358465f40c05be85b004daa7d2c175"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -52,6 +52,14 @@
             ],
             "index": "pypi",
             "version": "==1.0.2"
+        },
+        "googlemaps": {
+            "hashes": [
+                "sha256:7831f83f565fdf855421a4c6c4760fbfa80496fbf4b80ff7131707e03cd8d9da",
+                "sha256:e13d8f4101f033bc39d76ade52f99977f077814d79087794735d1bb71f35dcc2"
+            ],
+            "index": "pypi",
+            "version": "==3.0.2"
         },
         "idna": {
             "hashes": [
@@ -107,11 +115,20 @@
             ],
             "version": "==1.1.1"
         },
+        "pymediawiki": {
+            "hashes": [
+                "sha256:52ae1b950f953c69653bcc8fcdf13034e51bdabb78c1583615bd377edf0e026e",
+                "sha256:5914c1498ba82b1b9e57973b00e8642fd58d2068b031966367387113abc8c34b"
+            ],
+            "index": "pypi",
+            "version": "==0.6.1"
+        },
         "requests": {
             "hashes": [
                 "sha256:502a824f31acdacb3a35b6690b5fbf0bc41d63a24a45c4004352b0242707598e",
                 "sha256:7bf2a778576d825600030a110f3c0e3e8edc51dfaafe1c146e39a2027784957b"
             ],
+            "index": "pypi",
             "version": "==2.21.0"
         },
         "soupsieve": {

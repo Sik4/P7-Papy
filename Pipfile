@@ -9,9 +9,9 @@ verify_ssl = true
 flask = "*"
 unidecode = "*"
 wikipedia = "*"
-mediawiki = "*"
-request = "*"
+requests = "*"
 googlemaps = "*"
+pymediawiki = "*"
 
 [requires]
 python_version = "3.6"

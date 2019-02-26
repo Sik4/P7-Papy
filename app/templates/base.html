@@ -82,8 +82,8 @@
                     , complete: function () { $("#spin").hide(); }
                     , success: function (data) {
                         var town_output = JSON.parse(data);
-                        $('#output').html('<br>' + town_output.result);
-                        $('#mapurl').html('<br>' + town_output.mapurl);
+                        $('#output').text('<br>' + town_output.result);
+                        $('#mapurl').text('<br>' + town_output.mapurl);
                         /* changing the src of map img */
                         $('#mapurl').attr("src", town_output.mapurl);
 
