@@ -11,6 +11,7 @@ unidecode = "*"
 wikipedia = "*"
 mediawiki = "*"
 request = "*"
+googlemaps = "*"
 
 [requires]
 python_version = "3.6"

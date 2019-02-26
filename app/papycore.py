@@ -1,5 +1,8 @@
+import googlemaps
 from flask import Flask, request, render_template, jsonify
 from app.utilz import grandpy
+from app.api_request import Research
+from app.key import KEY
 
 
 app = Flask(__name__)
@@ -25,7 +28,18 @@ def town_list_process():
     try:
         user_input = request.args.get("proglang", type=str)
         wikiresult = grandpy(user_input)
-        print(wikiresult)
+        response = Research()
+        wikipediaresult = response.get_wiki()
+        lat = response.get_latitude()
+        long = response.get_longitude()
+        name_r = response.get_formatted_name()
+        geo_result = response.get_geocode()
+        print("geo_result : ", geo_result)
+        print("wikipediaresult : ", wikipediaresult)
+        print("lat : ", lat)
+        print("long : ", long)
+        print("name : ", name_r)
+
         return jsonify(result=("D'ailleurs, savais tu que " + wikiresult + "?"))  # , mapurl=url)
 
     except:
