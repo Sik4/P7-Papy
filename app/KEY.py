@@ -1,5 +1,9 @@
 """
 Be carefull with Googlemap api key
 """
+import os
 
-KEY = "AIzaSyBkKrzwEFfXOQfGR46Qn1KZoUjN7oZ8Sg0"
+key = os.getenv("KEY")
+
+
+# KEY = "AIzaSyBkKrzwEFfXOQfGR46Qn1KZoUjN7oZ8Sg0"

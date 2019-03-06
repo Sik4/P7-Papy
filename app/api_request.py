@@ -3,7 +3,8 @@ from mediawiki import MediaWiki
 import googlemaps
 from flask import request
 import os
-from temp.parser import PlaceExtractor
+from app.parser import PlaceExtractor
+from app.key import key
 
 
 class Research:
@@ -16,7 +17,7 @@ class Research:
             print("self.query : ", self.query)
 
             # googlemaps initialisation
-            self.gmaps = googlemaps.Client(key=os.getenv("KEY"))
+            self.gmaps = googlemaps.Client(key)
 
             self.search_json = self.get_geocode()
 
@@ -29,7 +30,6 @@ class Research:
             self.summary = self.page.summarize(chars=140)
             self.title = self.page.title
             self.url = self.page.url
-
 
         except Exception as e:
             print(e)

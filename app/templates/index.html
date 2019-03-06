@@ -1,14 +1,36 @@
 {% block body %}
 
 
-
-
-<div id="output">
-    ...................................
-</div>
-
-
+      <div id="output">
+            <div>should be output</div>
+                {{ wikipediaresult }}
+            <div id="map"></div>
+      </div>
 
 
 
-{% endblock %}
+     <script type="text/javascript">
+            function initMap() {
+
+              var location = {
+                  lat: {{ latitude }},
+                  lng: {{ longitude }}
+              };
+
+              var map = new google.maps.Map(
+                  document.getElementById('map'), {
+                      zoom: 8,
+                      center: location
+                  });
+
+              var marker = new google.maps.Marker({
+                  position: location,
+                  map: map,
+                  label: {{ name }}
+              });
+            }
+        </script>
+
+     <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ key }}&callback=initMap"></script>
+
+{% endblock body %}
