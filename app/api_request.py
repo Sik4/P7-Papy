@@ -37,12 +37,11 @@ class Research:
     def get_wiki(self):
         # Wiki answer
         try:
-            result = '{}<p>Mais on y trouve aussi.... {} [<a href="{}"> Lien wiki </a>]' \
-                     '</p></br>'.format(self.title, self.summary, self.url)
+            result = {"title" : self.title ,"summary" : self.summary, "url" : self.url, "error": None}
             return result
 
-        except:
-            return '<p>"{}"ne donne rien</p>'.format(self.query)
+        except Exception as e:
+            return {"error": True, "error message": str(e)}
 
     def get_latitude(self):
         # latitude

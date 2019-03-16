@@ -69,40 +69,13 @@
         {% endblock %}
     </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-    <script type="text/javascript">
 
-          $(document).ready(function () {
-              $('form').on('submit', function (click) {
-                  event.preventDefault();
-                  var url = '/town_list_process';
-                  $.ajax({
-                    url: url
-                    , type: 'GET'
-                    , data: {
-                            'proglang' : $('#proglang').val()
-                            }
-                    , dataType: 'text'
-                    , beforeSend: function () { $("#spin").show(); }
-                    , complete: function () { $("#spin").hide(); }
-                    , success: function (data) {
-                        var town_output = JSON.parse(data);
-                        $('#output').text('<br>' + town_output.result);
-                        $('#mapurl').text('<br>' + town_output.mapurl);
-                        /* changing the src of map img */
-                        $('#mapurl').attr("src", town_output.mapurl);
-
-                    }
-                    , error: function (data) {
-                        console.log(data);
-                        $('#output').append('<br>' + data.statusText);
-                    }
-                })
-              })
-          })
-
-    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmXmROr4wF17x8WcyCzYguXa2dR51OB74"></script>
+    <script src="static/js/jscript.js"></script>
 
   </body>
 

@@ -47,12 +47,7 @@ def town_list_process():
 
         print("dict_result:", dict_result)
 
-        return jsonify({'output': render_template('index.html',
-                                           wikipediaresult=wikipediaresult,
-                                           latitude=lat,
-                                           longitude=lng,
-                                           name=name_r,
-                                           key=key)})
+        return jsonify(dict_result)
 
         # return render_template('base.html')
         # return jsonify({'output': render_template('base.html', dict_result)})

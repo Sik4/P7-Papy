@@ -2,6 +2,10 @@ body {
     background-color: #55473A;
 }
 
+.map {
+        height: 300px;
+      }
+
 @media (min-width: 500px) {
     h1::before {
         content:"Welcome to GrandPapyBot !"

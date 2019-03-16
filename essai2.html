@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Construction d'un arbre dans le DOM</title>
+  </head>
+  <body>
+    <h1></h1>
+    <div id="output"></div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        var output = $('#output');
+        var response = $('<div class="response"></div>');
+        var grandpy = $('<p>Voici une anecdote, mon petit:</p>');
+        var wikipedia = $('<p></p>').text('Contenu de l\'article wikipedia ');
+        var lien = $('<a></a>').attr('href', 'http://lien.vers.wikipedia.fr').text('En savoir plus');
+        wikipedia.append(lien);
+        response.append(grandpy, wikipedia);
+        output.append(response);
+
+      })
+    </script>
+  </body>
+</html>
