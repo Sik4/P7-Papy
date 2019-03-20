@@ -1,18 +1,6 @@
 $(document).ready(function () {
-  $('form').on('submit', function (click) {
-      event.preventDefault();
-      var url = '/town_list_process';
-      $.ajax({
-        url: url
-        , type: 'GET'
-        , data: {
-                'proglang' : $('#proglang').val()
-                }
-        , dataType: 'text'
-        , beforeSend: function () { $("#spin").show(); }
-        , complete: function () { $("#spin").hide(); }
-        , success:
-        function initMap(latitude, longitude) {
+
+    function initMap(latitude, longitude) {
               var coordinates = {lat: latitude, lng: longitude};
 
               maps = document.querySelectorAll(".map")
@@ -28,7 +16,23 @@ $(document).ready(function () {
                 map: map
               });
             }
-        , function (data, latitude, longitude) {
+
+
+
+  $('form').on('submit'
+  , function (click) {
+      event.preventDefault();
+      var url = '/town_list_process';
+      $.ajax({
+        url: url
+        , type: 'GET'
+        , data: {
+                'proglang' : $('#proglang').val()
+                }
+        , dataType: 'text'
+        , beforeSend: function () { $("#spin").show(); }
+        , complete: function () { $("#spin").hide(); }
+        , success: function (data) {
             var town_output = JSON.parse(data);
             var output = $('#output');
             var response = $('<div class="response"></div>');
@@ -44,7 +48,7 @@ $(document).ready(function () {
             response.append(grandpy, wikipedia, newmap);
             output.prepend(response);
 
-            initMap(latitude, longitude);
+            initMap(lat, lng);
 
 
         }

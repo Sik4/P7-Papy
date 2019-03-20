@@ -4,7 +4,7 @@ import googlemaps
 from flask import request
 import os
 from app.parser import PlaceExtractor
-from app.key import key
+from app.KEY import key
 
 
 class Research:

@@ -2,7 +2,7 @@ import googlemaps
 from flask import Flask, request, render_template, jsonify
 from app.utilz import grandpy
 from app.api_request import Research, key
-from app.key import key
+
 
 
 app = Flask(__name__)
