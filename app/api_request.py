@@ -4,7 +4,7 @@ import googlemaps
 from flask import request
 import os
 from app.parser import PlaceExtractor
-from app.KEY import key
+from app.key import key
 
 
 class Research:
@@ -22,7 +22,7 @@ class Research:
             self.search_json = self.get_geocode()
 
             # Wikipedia initialisation
-            self.wikipedia = MediaWiki()
+            self.wikipedia = MediaWiki(lang='fr')
             lat = self.get_latitude()
             lng = self.get_longitude()
             self.article = self.wikipedia.geosearch(latitude=lat, longitude=lng)[0]
@@ -37,7 +37,7 @@ class Research:
     def get_wiki(self):
         # Wiki answer
         try:
-            result = {"title" : self.title ,"summary" : self.summary, "url" : self.url, "error": None}
+            result = {"title": self.title, "summary": self.summary, "url": self.url, "error": None}
             return result
 
         except Exception as e:
