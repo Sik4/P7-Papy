@@ -79,6 +79,20 @@ def test_research_get_latitude(monkeypatch):
     assert research.get_latitude() == 51.5073509
 
 
+def test_research_get_longitude(monkeypatch):
+    """Test get_georesult() return"""
+
+    def mock__init__(self, query):
+        with open("tests/mockgeoresult", 'r') as f:
+            self.search_json = json.load(f)
+
+    monkeypatch.setattr('app.api_request.Research.__init__', mock__init__)
+
+    research = Research("Je cherche Londre")
+
+    assert research.get_longitude() == -0.1277583
+
+
 
 
 
