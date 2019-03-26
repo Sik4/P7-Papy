@@ -56,7 +56,7 @@ $(document).ready(function () {
 
         , error: function (data) {
             console.log(data);
-            $('#output').append('<br>' + data.statusText);
+            $('#output').append('<br> Désolé mon petit, je peux seulement te dire que ' + data.statusText);
         }
     })
   })

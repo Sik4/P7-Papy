@@ -32,7 +32,7 @@ class Research:
             self.url = self.page.url
 
         except Exception as e:
-            print(e)
+            print("désolé, je ne te comprends pas ", e)
 
     def get_wiki(self):
         # Wiki answer

@@ -49,11 +49,7 @@ def town_list_process():
 
         return jsonify(dict_result)
 
-        # return render_template('base.html')
-        # return jsonify({'output': render_template('base.html', dict_result)})
-        # return jsonify(result=("D'ailleurs, savais tu que " + wikiresult + "?"))  # , mapurl=url)
-
-    except:
-        print('Error')
+    except Exception as e:
+        print("désolé petit, je ne te comprends pas ", e)
 
 
