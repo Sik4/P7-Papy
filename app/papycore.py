@@ -1,9 +1,5 @@
-import googlemaps
 from flask import Flask, request, render_template, jsonify
-from app.utilz import grandpy
-from app.api_request import Research, key
-
-
+from app.api_request import Research
 
 app = Flask(__name__)
 
@@ -20,25 +16,25 @@ def index():
 
 @app.route('/town_list_process')
 def town_list_process():
-    """
-    with open('fr.json', 'r') as fp:
-        town_list = json.load(fp)
-    """
 
     try:
+        # accessing the user input
         user_input = request.args.get("proglang", type=str)
-        wikiresult = grandpy(user_input)
         response = Research(user_input)
         wikipediaresult = response.get_wiki()
         lat = response.get_latitude()
         lng = response.get_longitude()
         name_r = response.get_formatted_name()
         geo_result = response.get_geocode()
+
+        # printing result in console for testing purposes
         print("geo_result : ", geo_result)
         print("wikipediaresult : ", wikipediaresult)
         print("lat : ", lat)
         print("long : ", lng)
         print("name : ", name_r)
+
+        # Returning the result as a dictionary
         dict_result = {"wikipediaresult": wikipediaresult,
                        "lat": lat,
                        "lng": lng,
@@ -50,6 +46,7 @@ def town_list_process():
         return jsonify(dict_result)
 
     except Exception as e:
+        # Raising Error and printing it
         print("désolé petit, je ne te comprends pas ", e)
 
 

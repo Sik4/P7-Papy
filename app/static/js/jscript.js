@@ -1,16 +1,18 @@
 $(document).ready(function () {
 
+
+    //map initialisation, with latitude and logitude expected
     function initMap(latitude, longitude) {
               var coordinates = {lat: latitude, lng: longitude};
 
               maps = document.querySelectorAll(".map")
-              //maps = document.getElementsByClassName("map");
+              // selector using one, by class Name or .map : maps = document.getElementsByClassName("map");
 
               var map = new google.maps.Map(maps[0], {
                 zoom: 15,
                 center: coordinates
               });
-
+              // using a marker on the center of the map as expected.
               var marker = new google.maps.Marker({
                 position: coordinates,
                 map: map
@@ -21,7 +23,9 @@ $(document).ready(function () {
 
   $('form').on('submit'
   , function (click) {
+      //preventing standard behaviour of submit
       event.preventDefault();
+      //ajax on URL town_list_process
       var url = '/town_list_process';
       $.ajax({
         url: url

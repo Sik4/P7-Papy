@@ -5,7 +5,7 @@ from app.api_request import Research
 import app.papycore
 import pytest
 
-
+"""Unit Tests"""
 def test_remove_accent():
     assert parser.PlaceExtractor._remove_accents("je vis à Montpellier") == "je vis a Montpellier"
 
@@ -15,7 +15,7 @@ def test_to_lower():
 
 
 def test_remove_special():
-    assert parser.PlaceExtractor._remove_special("ça alors !") == "ça alors "
+    assert parser.PlaceExtractor._remove_special("ça alors !") == "aalors"
 
 
 def test_remove_stop_words():

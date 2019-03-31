@@ -1,8 +1,5 @@
-import requests
 from mediawiki import MediaWiki
 import googlemaps
-from flask import request
-import os
 from app.parser import PlaceExtractor
 from app.key import key
 
@@ -12,7 +9,7 @@ class Research:
     def __init__(self, user_input):
         try:
             # Get input from user : change it to get by the parser
-            # user_input = request.args.get("proglang", type=str)
+
             self.query = PlaceExtractor.extract(user_input)
             print("self.query : ", self.query)
 
