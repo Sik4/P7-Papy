@@ -1,7 +1,7 @@
 from mediawiki import MediaWiki
 import googlemaps
 from app.parser import PlaceExtractor
-from app.key import key
+from config import key
 
 
 class Research:

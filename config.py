@@ -1,4 +1,11 @@
-...
+"""
+Be carefull with Googlemap api key
+"""
+import os
+
+key = os.getenv("KEY")
+
+
 # Database initialization
 if os.environ.get('DATABASE_URL') is None:
     basedir = os.path.abspath(os.path.dirname(__file__))
