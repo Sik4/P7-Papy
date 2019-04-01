@@ -12,6 +12,7 @@ wikipedia = "*"
 requests = "*"
 googlemaps = "*"
 pymediawiki = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.6"
